@@ -135,10 +135,10 @@ WSGI_APPLICATION = 'concesionario.wsgi.application'
 DATABASES = {
 	'default': {
 	'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-	'NAME': 'db5v8uejjeduh4', # Or path to database file if using sqlite3.
-	'USER': 'xqapwmdbsdtwbk', # Not used with sqlite3.
-	'PASSWORD': 'm4ygRgcQGDXjUntoIBKkgWRTVW', # Not used with sqlite3.
-	'HOST': 'ec2-107-20-148-211.compute-1.amazonaws.com', # Set to empty string for localhost. Not used with sqlite3.
+	'NAME': 'd5c3lpps21qear', # Or path to database file if using sqlite3.
+	'USER': 'xapxdqwklzzdhj', # Not used with sqlite3.
+	'PASSWORD': '_lhlMpEgAl_p9ickzChyLyaM1i', # Not used with sqlite3.
+	'HOST': 'ec2-54-83-198-159.compute-1.amazonaws.com', # Set to empty string for localhost. Not used with sqlite3.
 	'PORT': '5432', # Set to empty string for default. Not used with sqlite3.
 	}
 }
