@@ -5,7 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', [
+  'ionic',
+  'starter.controllers', 
+  'starter.services',
+  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -50,21 +54,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.workorder', {
+      url: '/workorder',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-workorder': {
+          templateUrl: 'templates/tab-workorder.html',
+          controller: 'WorkOrderCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+
+  .state('tab.workorder-detail', {
+      url: '/workorder/:orderId',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-workorder': {
+          templateUrl: 'templates/workorder-detail.html',
+          controller: 'WorkOrderDetailCtrl'
         }
       }
     })
@@ -73,20 +78,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
-    })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
+    });
 
   // if none of the above states are matched, use this as the fallback
-  //$urlRouterProvider.otherwise('/tab/dash');
   $urlRouterProvider.otherwise('/login');
 
 });
