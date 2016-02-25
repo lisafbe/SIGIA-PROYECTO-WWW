@@ -49,7 +49,7 @@ function listeners(){
 
   /* submit del formulario */
   $("#submit").click(function(event){
-      //event.preventDefault();
+      event.preventDefault();
       var $form = $("form");
       $form.ajaxSubmit({
           url: $form.attr('action'),
