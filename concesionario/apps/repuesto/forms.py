@@ -77,7 +77,7 @@ class RepuestoSucursalAjaxCreateView(LoginRequiredMixin, TemplateView):
 			template = loader.get_template('repuesto/includes/inventario.html')
 			repuestos = Repuesto.objects.all()
 			sucursal = Sucursal.objects.get(id=kwargs['spk'])
-			sucursal_repuestos = SucursalRepuesto.objects.get(sucursal=sucursal)
+			sucursal_repuestos = SucursalRepuesto.objects.filter(sucursal=sucursal)
 			context = {
 				'repuestos':repuestos,
 				'sucursal':sucursal,
@@ -108,7 +108,7 @@ class RepuestoSucursalAjaxUpdateView(LoginRequiredMixin, TemplateView):
 
 	def get(self,request,*args,**kwargs):
 
-		sucursal_repuesto = SucursalRepuesto.objects.get(id=kwargs['pk'])
+		sucursal_repuesto = SucursalRepuesto.objects.get(id=kwargs['spk'])
 		template = loader.get_template('includes/form.html')
 		form = RepuestoSucursalCreateForm(instance=sucursal_repuesto)
 		context = {'form':form}
@@ -122,7 +122,7 @@ class RepuestoSucursalAjaxUpdateView(LoginRequiredMixin, TemplateView):
 		return HttpResponse(data,content_type='application/json')
 
 	def post(self,request,*args,**kwargs):
-		sucursal_repuesto = SucursalRepuesto.objects.get(id=kwargs['pk'])
+		sucursal_repuesto = SucursalRepuesto.objects.get(id=kwargs['spk'])
 		form = RepuestoSucursalCreateForm(
 			request.POST,
 			instance=sucursal_repuesto)
@@ -133,7 +133,7 @@ class RepuestoSucursalAjaxUpdateView(LoginRequiredMixin, TemplateView):
 			template = loader.get_template('repuesto/includes/inventario.html')
 			repuestos = Repuesto.objects.all()
 			sucursal = Sucursal.objects.get(id=kwargs['spk'])
-			sucursal_repuestos = SucursalRepuesto.objects.get(sucursal=sucursal)
+			sucursal_repuestos = SucursalRepuesto.objects.filter(sucursal=sucursal)
 			context = {
 				'repuestos':repuestos,
 				'sucursal':sucursal,

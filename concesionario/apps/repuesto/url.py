@@ -17,6 +17,6 @@ urlpatterns = [
     url(r'^repuestos/$', RepuestosListView.as_view(), name='listar'),
 
     url(r'^repuestos/sucursal/(?P<spk>\d+)/agregar/(?P<rpk>\d+)/$', RepuestoSucursalAjaxCreateView.as_view(), name='agregar-repuesto-sucursal'),
-    url(r'^repuestos/sucursal/actualizar/(?P<pk>\d+)/$', RepuestoSucursalAjaxUpdateView.as_view(), name='actualizar-repuesto-sucursal'),
+    url(r'^repuestos/sucursal/actualizar/(?P<spk>\d+)/$', RepuestoSucursalAjaxUpdateView.as_view(), name='actualizar-repuesto-sucursal'),
     url(r'^repuestos/sucursal/(?P<pk>\d+)/$', RepuestoSucursalListView.as_view(), name='listar-repuestos-sucursal'),
 ]
